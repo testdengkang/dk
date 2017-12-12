@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
@@ -24,6 +25,7 @@ public class UserController {
 //	private HtmlService htmlService;
 	@ApiOperation(value="showUser",notes = "用户列表")
 	@RequestMapping("/showUser")
+    @ResponseBody
 	public ModelAndView toIndex(@ApiParam(name="id",value = "int") int id){
 		ModelAndView m = new ModelAndView();
 		User user = this.userService.getUserById(id);

@@ -26,8 +26,7 @@
 
 	<!-- 扫描注解 -->
 	<context:component-scan base-package="com.nged"/>
-    <bean class="com.nged.config.Swagger2Config" />
-	
+
 	<!-- 引入SPRING配置文件 -->
 	<!--<import resource="spring/mq.xml"/>-->
 	<!-- 公共引入start -->

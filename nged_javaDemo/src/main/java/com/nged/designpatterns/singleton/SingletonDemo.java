@@ -57,6 +57,9 @@ public class SingletonDemo {
             public static SingletonDemo singleton = new SingletonDemo();
         }
 
+
+
+
         public static SingletonDemo newInstance(){
             return InstanceHanler.singleton;
         }

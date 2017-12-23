@@ -153,6 +153,20 @@
             </executions>
         </plugin>
 
+        <plugin>
+            <groupId>org.apache.tomcat.maven</groupId>
+            <artifactId>tomcat7-maven-plugin</artifactId>
+            <version>${tomcat7-maven-plugin.version}</version>
+            <configuration>
+                <charset>${file.encoding}</charset>
+                <uriEncoding>${file.encoding}</uriEncoding>
+                <server>tomcat7</server>
+                <delegate>true</delegate>
+                <path>/</path>
+                <port>8080</port>
+            </configuration>
+        </plugin>
+
     </plugins>
 
   </build>

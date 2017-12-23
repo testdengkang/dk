@@ -1,4 +1,7 @@
-package com.nged;
+package com.nged.designpatterns.produceconsumer;
+
+import com.nged.T1;
+import com.nged.T2;
 
 public class TestVolatile extends Thread {
         private int a  = 1;

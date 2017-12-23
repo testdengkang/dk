@@ -1,4 +1,4 @@
-package com.nged;
+package com.nged.designpatterns.produceconsumer;
 
 public class ThreadProducer implements Runnable {
 

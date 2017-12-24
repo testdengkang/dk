@@ -22,7 +22,7 @@ public class AppConfig {
 	@Bean
 	public EhCacheManagerFactoryBean ehCacheCacheManager() {
 		EhCacheManagerFactoryBean factory = new EhCacheManagerFactoryBean();
-		factory.setConfigLocation(new ClassPathResource("ehcache.xml"));
+		factory.setConfigLocation(new ClassPathResource("ehcache/ehcache.xml"));
 		factory.setShared(true);
 		return factory;
 	}

@@ -1,5 +1,8 @@
-package com.nged.proxydemo;
+package com.nged.designpatterns.proxymode.staticproxy;
 
+/**
+ * 被代理对象的实现类
+ */
 public class ProxyProviderImpl implements ProxyProvider {
     @Override
     public void doSometing(String taskName) {

@@ -1,4 +1,4 @@
-package com.nged.dongtai.gclib;
+package com.nged.designpatterns.proxymode.dynamic.gclib;
 
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;

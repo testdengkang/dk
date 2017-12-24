@@ -1,6 +1,6 @@
-package com.nged.dongtai.gclib;
+package com.nged.designpatterns.proxymode.dynamic.gclib;
 
-import com.nged.proxydemo.ProxyProviderImpl;
+import com.nged.designpatterns.proxymode.staticproxy.ProxyProviderImpl;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 

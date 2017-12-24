@@ -1,8 +1,8 @@
-package com.nged.proxydemo;
+package com.nged.designpatterns.proxymode.staticproxy;
 
 public interface ProxyProvider {
     /**
-     * 代理接口
+     * 被代理接口
      * @param taskName
      */
     void doSometing(String taskName);

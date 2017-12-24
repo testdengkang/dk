@@ -1,4 +1,4 @@
-package com.nged.dongtai.JDKDynamic;
+package com.nged.designpatterns.proxymode.dynamic.JDKDynamic;
 
 import org.apache.log4j.Logger;
 
@@ -18,7 +18,7 @@ public class MyHandler implements InvocationHandler {
             LOG.error("111");
             e.printStackTrace();
         } catch (IllegalAccessException e) {
-            LOG.error("222");
+            LOG.error("参数错误！");
             e.printStackTrace();
         }
 

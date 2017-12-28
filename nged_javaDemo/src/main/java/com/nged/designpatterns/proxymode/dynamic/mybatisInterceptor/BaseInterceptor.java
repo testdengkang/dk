@@ -18,17 +18,19 @@ public class BaseInterceptor implements MyInterceptor {
 
     @Override
     public Object intercept(Invocation invocation) {
+        Object result = null;
         //拦截器扩展 也可叫做代理扩展
         preAction();
         try {
             //执行委托类的方法
-            return invocation.proceed();
+            result=  invocation.proceed();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-       return null;
+        afterAction();
+       return result;
     }
 
 

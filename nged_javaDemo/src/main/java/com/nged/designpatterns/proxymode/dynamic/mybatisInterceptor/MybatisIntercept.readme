@@ -1,0 +1,9 @@
+一般的代理（继承InvocationHandler的对象） 可以对委托对象进行扩展，mybatis的插件拦截器则是将代理的扩展方法作为一个接口（Interceptor）抽象出来，
+然后对抽象出来的接口（Interceptor），通过注解（@Intercepts，@Signature）的方式来标记被拦截的接口对象方法参数，
+@Intercepts可配置多个@Signature，@Signature属性对应type 拦截对象，method拦截方法，args 方法的参数，
+通过标记可以拦截多个方法。通过封装的Plugin对象来对委托对象进行代理扩展，
+在进行包装wrap方法中通过拦截器的注解配置和委托对象的继承接口 进行判断，
+如果委托对象继承的接口含有被拦截的方法则对委托类的代理进行wrap，
+否则直接返回委托类的代理。mybatis插件主要针对单接口代理，
+
+如果是多接口代理则需要在获取拦截接口和委托类继承的接口交集的方法getAllInterfaces做少许调整。

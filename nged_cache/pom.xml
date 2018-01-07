@@ -9,25 +9,23 @@
     <artifactId>nged_cache</artifactId>
     <packaging>war</packaging>
     <name>nged_cache</name>
-    <properties>
-        <springframework.version>4.3.0.RELEASE</springframework.version>
-    </properties>
+
 
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>${springframework.version}</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${springframework.version}</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <version>${springframework.version}</version>
+            <version>${spring.version}</version>
         </dependency>
         <!-- EHCache -->
         <dependency>

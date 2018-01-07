@@ -68,6 +68,8 @@
         <mybatis.spring.version>1.2.2</mybatis.spring.version>
         <pagehelper.version>3.2.3</pagehelper.version>
 
+        <alibaba.druid.version>1.1.6</alibaba.druid.version>
+
         <guava.version>19.0</guava.version>
         <cglib.versin>3.1</cglib.versin>
         <!--swagger2-->
@@ -114,6 +116,13 @@
             <!-- 表示开发的时候引入，发布的时候不会加载此包 -->
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${alibaba.druid.version}</version>
+        </dependency>
+
         <!-- spring核心包 -->
         <dependency>
             <groupId>org.springframework</groupId>

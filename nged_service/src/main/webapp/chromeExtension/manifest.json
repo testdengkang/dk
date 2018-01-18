@@ -1,0 +1,36 @@
+{
+
+  "manifest_version": 2,
+
+  "name": "160助手",
+
+  "version": "0.0.1",
+
+  "description": "",
+
+  "icons":{"48":"test.png"},
+
+  "background": {
+    "scripts": ["jquery.min.js","test.user.js"]
+  },
+
+  "options_page": "",
+
+  "browser_action":
+  {
+
+    "default_icon": "test.png",
+
+    "name": "160助手"
+
+  },
+  "permissions":[
+     "https://www.91160.com/*"
+  ],
+  "content_scripts": [
+    {"js":["jquery.min.js","test.user.js"],"matches": ["https://www.91160.com/*"],
+      "run_at": "document_end"}
+  ]
+
+
+}

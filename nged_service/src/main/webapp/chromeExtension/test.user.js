@@ -19,6 +19,13 @@ function queryStart(){
 
 }
 
+function voice(){
+    $("<audio id='chatAudio'><source src='notify.ogg' type='audio/ogg'>" +
+        "<source src='notify.mp3' type='audio/mpeg'>" +
+        "<source src='notify.wav' type='audio/wav'>"+
+        "</audio>").appendTo('body');//载入声音文件
+}
+
 function queryData(url){
     console.info("第"+count+"次查询开始...");
 
@@ -50,6 +57,7 @@ function queryData(url){
                                             console.info(record.to_date + "_" + record.time_type_desc +
                                                 "_" + record.doctor_name + " 挂号费用：" + record.guahao_amt + "总共名额：" + record.yuyue_max + "_剩余：" + record.left_num + "_已预约：" + record.yuyue_num +
                                                 "预约地址：" + "https://www.91160.com/guahao/ystep1/uid-" + record.unit_id + "/schid-" + record.schedule_id + ".html");
+                                            $('#chatAudio')[0].play();
                                         }
                                     }
                                     if (ppm[j] != null) {
@@ -58,6 +66,7 @@ function queryData(url){
                                             console.info(record.to_date + "_" + record.time_type_desc +
                                                 "_" + record.doctor_name + " 挂号费用：" + record.guahao_amt + "总共名额：" + record.yuyue_max + "_剩余：" + record.left_num + "_已预约：" + record.yuyue_num +
                                                 "预约地址：" + "https://www.91160.com/guahao/ystep1/uid-" + record.unit_id + "/schid-" + record.schedule_id + ".html");
+                                            $('#chatAudio')[0].play();
                                         }
                                     }
                                 }
@@ -75,7 +84,7 @@ function queryData(url){
     console.info("第"+count+"次查询结束...");
     count++;
 }
-
- setInterval("queryStart()", 2000);
+voice();
+ setInterval("queryStart()", 1800);
 
 

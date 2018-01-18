@@ -15,7 +15,8 @@
   },
 
   "options_page": "",
-
+  /*"automation": true,*/
+  /*"content_security_policy": "script-src 'self'; object-src 'self'",      // 安全策略，默认情况下禁止使用*/
   "browser_action":
   {
 

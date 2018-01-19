@@ -3,28 +3,25 @@
 //script.src="https://webimg.91160.com/static/v4/common/jquery-1.9.1.min.js";
 //document.getElementsByTagName('head')[0].appendChild(script);
 var xzurl="https://www.91160.com/dep/getschmast/uid-21/depid-384/date-2018-01-18/p-0/doc_ids-1252,1251,1253,13760,14790,200008048,200115226.html";
-var kq3="https://www.91160.com/dep/getschmast/uid-21/depid-4380/date-2018-02-01/p-0/doc_ids-9154,9156,5195,9175,9155,18008,9181,14629,200011554,200123174,200002519.html";
-var kq2  ="https://www.91160.com/dep/getschmast/uid-21/depid-4380/date-2018-01-25/p-0/doc_ids-9154,9156,5195,9175,9155,18008,9181,14629,200011554,200123174,200002519.html";
-var kq1  ="https://www.91160.com/dep/getschmast/uid-21/depid-4380/date-2018-01-18/p-0/doc_ids-9154,9156,5195,9175,9155,18008,9181,14629,200011554,200123174,200002519.html";
+var kq3="https://www.91160.com/dep/getschmast/uid-21/depid-4380/date-2018-02-02/p-0/doc_ids-9154,9156,5195,9175,9155,18008,9181,14629,200011554,200123174,200002519.html";
+var kq2  ="https://www.91160.com/dep/getschmast/uid-21/depid-4380/date-2018-01-26/p-0/doc_ids-9154,9156,5195,9175,9155,18008,9181,14629,200011554,200123174,200002519.html";
+var kq1  ="https://www.91160.com/dep/getschmast/uid-21/depid-4380/date-2018-01-19/p-0/doc_ids-9154,9156,5195,9175,9155,18008,9181,14629,200011554,200123174,200002519.html";
+
 //y_state 0 约满 1可预约 -1过期
 
 var count=0;
 
 function queryStart(){
-    queryData(kq1);
-
-    queryData(kq2);
-
-    queryData(kq3);
+    if(count%3==0){
+        queryData(kq1);
+    }else if(count%3==1){
+        queryData(kq2);
+    }else if(count%3==2){
+        queryData(kq3);
+    }
 
 }
 
-function voice(){
-    $("<audio id='chatAudio'><source src='notify.ogg' type='audio/ogg'>" +
-        "<source src='notify.mp3' type='audio/mpeg'>" +
-        "<source src='notify.wav' type='audio/wav'>"+
-        "</audio>").appendTo('body');//载入声音文件
-}
 
 function queryData(url){
     console.info("第"+count+"次查询开始...");
@@ -84,7 +81,15 @@ function queryData(url){
     console.info("第"+count+"次查询结束...");
     count++;
 }
-voice();
- setInterval("queryStart()", 1800);
+var timer1;
+setInterval("queryStart()", 800);
+function click() {
+    alert("11");
+    timer1 =  "";
+}
+function cancle(){
+    alert("22");
+    clearTimeout(timer1);
+}
 
 

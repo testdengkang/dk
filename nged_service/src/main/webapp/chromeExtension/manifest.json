@@ -1,32 +1,42 @@
 {
-
+  // Required
   "manifest_version": 2,
-
   "name": "160助手",
-
   "version": "0.0.1",
 
-  "description": "",
+  "description": "小助手",
 
-  "icons":{"48":"test.png"},
+  "icons":{
+    "128":"test.png",
+    "16":"test.png",
+    "32":"test.png",
+    "48":"test.png"
+
+  },
 
   "background": {
-    "scripts": ["jquery.min.js","test.user.js"]
+    "scripts": ["jquery.min.js","test.user.js","test.png"]
   },
 
   "options_page": "",
   /*"automation": true,*/
   /*"content_security_policy": "script-src 'self'; object-src 'self'",      // 安全策略，默认情况下禁止使用*/
-  "browser_action":
-  {
 
-    "default_icon": "test.png",
-
-    "name": "160助手"
-
+  "browser_action": {
+    "name": "160助手",
+    "default_icon": "test.png" ,
+    "default_title": "160助手",      // optional; shown in tooltip
+    "default_popup": "test.html"        // optional
   },
+
+  "options_page": "test.html",
+
   "permissions":[
-     "https://www.91160.com/*"
+     "https://www.91160.com/*",
+     "tabs",
+     "activeTab",
+     "notifications",
+     "storage"
   ],
   "content_scripts": [
     {"js":["jquery.min.js","test.user.js"],"matches": ["https://www.91160.com/*"],

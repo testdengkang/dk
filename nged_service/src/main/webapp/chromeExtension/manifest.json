@@ -2,7 +2,7 @@
   // Required
   "manifest_version": 2,
   "name": "160助手",
-  "version": "0.0.1",
+  "version": "0.0.2",
 
   "description": "小助手",
 
@@ -38,8 +38,9 @@
      "notifications",
      "storage"
   ],
+
   "content_scripts": [
-    {"js":["jquery.min.js","test.user.js"],"matches": ["https://www.91160.com/*"],
+    {"js":["jquery.min.js","test.user.js"],"matches": ["https://www.91160.com/dep/show/depid-4380.html"],
       "run_at": "document_end"}
   ]
 

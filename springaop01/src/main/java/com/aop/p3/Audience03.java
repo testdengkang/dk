@@ -1,36 +1,36 @@
-package com.aop.p1;
+package com.aop.p3;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 
 /**
- * 创建切面
- * 设置切入点
- * 通过@Pointcut 声明切入点
+ * 去掉注解通过xml来配置
+ *
  */
-@Aspect
-public class Audience01 {
 
-    @Pointcut("execution(** com.aop.Performance.perform(..))")
-    public void performace(){}
-    @Pointcut("execution(** com.aop.Performance.performWithArgs(int)) && args(num)" )
-    public void performWithArgs(int num){}
+public class Audience03 {
 
-    @Before("performWithArgs(num)")
+   // @Pointcut("execution(** com.aop.Performance.perform(..))")
+   // public void performace(){}
+
+   // @Pointcut("execution(** com.aop.Performance.performWithArgs(int)) && args(num)" )
+   // public void performWithArgs(int num){}
+
+    //@Before("performWithArgs(num)")
     public void performaceArgs(int num){
         System.out.println(num);
     }
 
-    @Before("performace()")
+    //@Before("performace()")
     public void silenceCellPhones(){
         System.out.println("Silencing cell phones");
     }
-    @Before("performace()")
+    //@Before("performace()")
     public void takeSeats(){
         System.out.println("Taking seats");
     }
 
-    @AfterReturning("performace()")
+    //@AfterReturning("performace()")
     public void applause(){
         System.out.println("after Return");
     }
@@ -40,7 +40,7 @@ public class Audience01 {
      * @param joinPoint
      * @throws Throwable
      */
-    @Around("performace()")
+    //@Around("performace()")
     public void around(ProceedingJoinPoint joinPoint) throws Throwable {
         System.out.println("around before");
         joinPoint.proceed();

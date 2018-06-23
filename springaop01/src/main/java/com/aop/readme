@@ -1,0 +1,7 @@
+通过javaconfig方式配置aspect
+P1 通过aspect 定义切面Audience 对performance的方法进行功能扩展，
+Audience和Audience01 通过@Pointcut 对相同切入点进行定义 避免过多重复代码
+
+P2 对performance接口 引入 encoreable 新功能，通过切面EncoreableIntroducer定义实现非入侵式新功能扩展
+
+P3 去掉@Aspect、@Pointcut、@Before @AfterReturn @Around 等java注解 使用xml方式配置切面

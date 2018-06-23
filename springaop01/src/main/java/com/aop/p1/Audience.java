@@ -1,4 +1,4 @@
-package com.aop;
+package com.aop.p1;
 
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;

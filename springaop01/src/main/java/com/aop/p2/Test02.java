@@ -1,4 +1,4 @@
-package com.aop.p1;
+package com.aop.p2;
 
 
 import org.junit.Test;
@@ -8,15 +8,18 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=AopConfig01.class)
-public class Test01 {
+@ContextConfiguration(classes=AopConfig02.class)
+public class Test02 {
     @Autowired
     private Performance pm;
 
+   @Autowired
+    private Encoreable en;
     @Test
     public void test(){
-        pm.perform();
-        pm.performWithArgs(2);
+       pm.performWithArgs(2);
+       en.performEncore("自身调用");
+        ((Encoreable)pm).performEncore("performance02 ");
     }
 
 }

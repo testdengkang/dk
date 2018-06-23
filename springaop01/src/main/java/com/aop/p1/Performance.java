@@ -1,4 +1,4 @@
-package com.aop;
+package com.aop.p1;
 
 public interface Performance {
     public void perform();

@@ -1,10 +1,10 @@
 package com.aop.p3;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
+
 
 /**
- * 去掉注解通过xml来配置
+ * 去掉注解通过xml来配置即纯POJO方式
  *
  */
 

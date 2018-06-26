@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation=" http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-3.0.xsd  ">
+    <!-- 定义被代理对象 -->
+     <bean id="performanceImpl5" class="com.aop.p5.PerformanceImpl5" ></bean>
+    <!-- 定义通知内容，也就是切入点执行前后需要做的事情 -->
+    <bean id="performHelper" class="com.aop.p5.PerformHelper" />
+    <!--定义切入点位置-->
+    <bean id="performCut" class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+        <property name="pattern" value=".*perform" />
+    </bean>
+    <!--使切入点和通知相关联，完成切面配置-->
+    <bean id="performHelperAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="advice" ref="performHelper"/>
+        <property name="pointcut" ref="performCut"/>
+    </bean>
+
+    <bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <!--代理的对象-->
+        <property name="target" ref="performanceImpl5"/>
+        <!--使用切面-->
+        <property name="interceptorNames" value="performHelperAdvisor"/>
+        <!--代理接口-->
+        <property name="proxyInterfaces" value="com.aop.p5.Performance5"/>
+
+    </bean>
+
+</beans>

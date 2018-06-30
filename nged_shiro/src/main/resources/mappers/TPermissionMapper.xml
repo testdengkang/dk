@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.dao.TPermissionMapper" >
+  <resultMap id="BaseResultMap" type="com.web.model.TPermission" >
+
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="PERMISSION" property="permission" jdbcType="VARCHAR" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="AVAILABLE" property="available" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+
+    delete from T_PERMISSION
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.web.model.TPermission" >
+
+    insert into T_PERMISSION (ID, PERMISSION, DESCRIPTION, 
+      AVAILABLE)
+    values (#{id,jdbcType=INTEGER}, #{permission,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{available,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.web.model.TPermission" >
+
+    update T_PERMISSION
+    set PERMISSION = #{permission,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      AVAILABLE = #{available,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+
+    select ID, PERMISSION, DESCRIPTION, AVAILABLE
+    from T_PERMISSION
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+
+    select ID, PERMISSION, DESCRIPTION, AVAILABLE
+    from T_PERMISSION
+  </select>
+  <select id="queryPermissionsByUserId" resultMap="BaseResultMap" >
+     select ID, PERMISSION, DESCRIPTION, AVAILABLE
+    from T_PERMISSION t where t.AVAILABLE=1 and t.ID in(
+		select trp.PERMISSION_ID from T_ROLE_PERMISSION trp where trp.ROLE_ID in (
+			 select t.ROLE_ID from T_USER_ROLE t where t.AVAILABLE=1 and t.USER_ID=#{userId}
+			))
+  </select>
+</mapper>

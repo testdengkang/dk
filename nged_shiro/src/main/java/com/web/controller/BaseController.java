@@ -4,10 +4,8 @@ import org.springframework.stereotype.Controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-@Controller
-public class BaseController {
 
-    public void printf(HttpServletRequest request){
-        System.out.println(request.getRequestURI());
-    }
+public abstract class BaseController {
+
+    public abstract   void printf(HttpServletRequest request);
 }

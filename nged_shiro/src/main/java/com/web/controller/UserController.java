@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/user")
-public class UserController extends BaseController{
+public class UserController extends DefaultController{
 
     @RequestMapping("/toLogin")
     public ModelAndView toPageLogin(HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -25,5 +25,10 @@ public class UserController extends BaseController{
     public ModelAndView toPageMain(HttpServletRequest request){
         printf(request);
         return new ModelAndView("main");
+    }
+    @RequestMapping("toRegister")
+    public ModelAndView toRegister(HttpServletRequest request){
+        printf(request);
+        return new ModelAndView("register");
     }
 }

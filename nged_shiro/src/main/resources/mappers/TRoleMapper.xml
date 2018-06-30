@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.dao.TRoleMapper" >
+  <resultMap id="BaseResultMap" type="com.web.model.TRole" >
+
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="ROLE" property="role" jdbcType="VARCHAR" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+
+    delete from T_ROLE
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.web.model.TRole" >
+
+    insert into T_ROLE (ID, ROLE, DESCRIPTION
+      )
+    values (#{id,jdbcType=INTEGER}, #{role,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.web.model.TRole" >
+
+    update T_ROLE
+    set ROLE = #{role,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+
+    select ID, ROLE, DESCRIPTION
+    from T_ROLE
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+
+    select ID, ROLE, DESCRIPTION
+    from T_ROLE
+  </select>
+  <select id="queryRolesByUserId" resultMap="BaseResultMap">
+   SELECT
+    r.ID,
+    r.DESCRIPTION,
+    r.ROLE
+    from T_ROLE r
+    WHERE
+    r.ID IN (
+    select ur.ROLE_ID from T_USER_ROLE ur where ur.AVAILABLE=1 and  ur.user_id = #{userId}  )
+    GROUP BY
+    r.ID
+
+  </select>
+</mapper>

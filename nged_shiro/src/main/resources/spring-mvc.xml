@@ -17,14 +17,25 @@
 	<!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
 	<context:component-scan base-package="com.web.controller" />
 	<mvc:resources location="/WEB-INF/static/" mapping="/static/**" />
-
+	<mvc:resources location="/WEB-INF/pages/" mapping="/**/*.html"/>
 	<mvc:annotation-driven />
 	<!-- 激活自动代理功能 -->
 	<aop:aspectj-autoproxy proxy-target-class="true"/>
-	
+
+
+
+	<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/WEB-INF/pages/"/>
+	</bean>
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="cache" value="true"/>
+		<property name="prefix" value=""/>
+		<property name="suffix" value=".html"/>
+	</bean>
 	<!-- -->
 	<mvc:view-resolvers>
-		<mvc:jsp cache-views="false" prefix="/WEB-INF/pages/" suffix=".jsp" />
+		<mvc:jsp cache-views="false" prefix="/WEB-INF/pages/" suffix=".jsp"  />
+
 	</mvc:view-resolvers>
 	<bean
 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">

@@ -34,7 +34,7 @@ public class DBPasswordCallback extends DruidPasswordCallback {
 
 	// 请使用该方法加密后，把密文写入classpath:/config/jdbc.properties
 	public static void main(String[] args) {
-		String encrypt = SecurityUtil.encryptDes("csmseim", key);
+		String encrypt = SecurityUtil.encryptDes("11111", key);
 		System.out.println(encrypt);
 		System.out.println( SecurityUtil.decryptDes(encrypt, key));
 	}

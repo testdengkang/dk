@@ -5,6 +5,7 @@ import com.core.support.security.coder.*;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 import java.util.Map;
 
 
@@ -280,7 +281,15 @@ public final class SecurityUtil {
 	}
 
 	public static void main(String[] args) throws Exception {
-		System.out.println(encryptDes("SHJR"));
+		for(int i=0;i<10;i++){
+			System.out.println((new Date()).getTime());
+		}
+		String salt="fdajkfdf";
+		String pwd ="11112222";
+		String md1 = encryptMd5NoBase64(pwd);
+		System.out.println(md1);
+		System.out.println(encryptMd5NoBase64(md1+salt));
+	/*	System.out.println(encryptDes("SHJR"));
 		System.out.println(decryptDes("INzvw/3Qc4q="));
 		System.out.println(encryptMd5("SHJR"));
 		System.out.println(encryptSHA("1"));
@@ -296,7 +305,7 @@ public final class SecurityUtil {
 		System.out.println(encrypt);
 		String org = decryptRSAPrivate(encrypt, privateKey);
 		System.out.println(org);
- 		System.out.println(verifyRSA(org, publicKey, sign));
+ 		System.out.println(verifyRSA(org, publicKey, sign));*/
 
 		// System.out.println("-------列出加密服务提供者-----");
 		// Provider[] pro = Security.getProviders();

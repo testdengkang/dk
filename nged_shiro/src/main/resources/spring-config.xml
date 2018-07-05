@@ -9,16 +9,22 @@
          http://www.springframework.org/schema/context
          http://www.springframework.org/schema/context/spring-context-3.0.xsd  ">
 
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="locations">
             <list>
                 <value>classpath:config/jdbc.properties</value>
+                <value>classpath:config/sys.properties</value>
             </list>
         </property>
-
+    </bean>
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="properties" ref="configProperties"/>
     </bean>
 
-
+    <!-- 扫描注解 -->
+    <context:component-scan base-package="com.web">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
     <import resource="dataSource.xml"/>
     <import resource="mybatis.xml"/>
     <import resource="spring-shiro.xml"/>

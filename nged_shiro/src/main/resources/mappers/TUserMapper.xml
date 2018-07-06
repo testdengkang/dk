@@ -61,4 +61,10 @@
     select ID, USERNAME, PASSWORD, SALT, LOCKED, EMAIL
     from T_USER
   </select>
+  <select id="queryUserByUserName" resultMap="BaseResultMap">
+    select ID, USERNAME, PASSWORD, SALT, LOCKED, EMAIL
+    from T_USER
+    where USERNAME = #{userName,jdbcType=VARCHAR}
+
+  </select>
 </mapper>

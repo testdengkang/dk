@@ -28,7 +28,7 @@
         <property name="filters" ref=""/>-->
         <property name="loginUrl" value="/login" />
         <property name="unauthorizedUrl" value="/unauthorized" />
-        <property name="successUrl" value="/success"/>
+        <property name="successUrl" value="/index"/>
 
     </bean>
 

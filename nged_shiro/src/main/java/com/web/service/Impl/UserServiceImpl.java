@@ -21,4 +21,11 @@ public class UserServiceImpl implements UserService {
     public int updateUser(TUser user) {
         return tUserMapper.updateByPrimaryKey(user);
     }
+
+    @Override
+    public TUser queryUserByUserName(String userName) {
+        return tUserMapper.queryUserByUserName(userName);
+    }
+
+
 }

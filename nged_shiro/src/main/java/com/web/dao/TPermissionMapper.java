@@ -4,6 +4,8 @@ import com.web.model.TPermission;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Set;
+
 @Repository
 public interface TPermissionMapper {
 
@@ -19,5 +21,5 @@ public interface TPermissionMapper {
 
     int updateByPrimaryKey(TPermission record);
 
-    List<TPermission> queryPermissionsByUserId(int userId);
+    Set<String> queryPermissionsByUserId(int userId);
 }

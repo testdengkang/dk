@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SB Admin - Start Bootstrap Template</title>
+  <title> Admin</title>
   <base href="<%=basePath%>">
   <!-- Bootstrap core CSS-->
   <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -81,8 +81,11 @@
               data: $('#registerForm').serialize(),
               success: function (result) {
                   console.log(result);//打印服务端返回的数据(调试用)
-                  if (result.resultCode == 200) {
+                  if (result.code == 2000) {
                       alert("SUCCESS");
+                      window.location.href='login';
+                  }else if(result.code ==2001){
+                      alert("fail");
                   }
 
               },

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
+
 @Service
 public class PermissionServiceImpl implements PermissionService {
 
@@ -24,7 +26,7 @@ public class PermissionServiceImpl implements PermissionService {
     }
 
     @Override
-    public List<TPermission> queryPermissionsByUserId(int userId) {
+    public Set<String> queryPermissionsByUserId(int userId) {
         return tPermissionMapper.queryPermissionsByUserId(userId);
     }
 }

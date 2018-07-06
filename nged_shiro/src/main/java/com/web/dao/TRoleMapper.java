@@ -4,6 +4,8 @@ import com.web.model.TRole;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Set;
+
 @Repository
 public interface TRoleMapper {
 
@@ -21,5 +23,5 @@ public interface TRoleMapper {
 
     int updateByPrimaryKey(TRole record);
 
-    List<TRole> queryRolesByUserId(int userId);
+    Set<String> queryRolesByUserId(int userId);
 }

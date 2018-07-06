@@ -43,4 +43,11 @@ public interface TUserMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(TUser record);
+
+    /**
+     * 根据userName 查询用户
+     * @param userName
+     * @return
+     */
+    TUser queryUserByUserName(String userName);
 }

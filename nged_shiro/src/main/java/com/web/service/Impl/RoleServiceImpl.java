@@ -29,4 +29,9 @@ public class RoleServiceImpl implements RoleService {
     public Set<String> queryRolesByUserId(int userId) {
         return tRoleMapper.queryRolesByUserId(userId);
     }
+
+    @Override
+    public List<TRole> queryAllRoles() {
+        return tRoleMapper.selectAll();
+    }
 }

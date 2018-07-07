@@ -2,12 +2,10 @@ package com.web.controller;
 
 
 import com.core.utils.SecurityUtil;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import com.web.common.StatusCodeUtils;
-import com.web.common.UserMessage;
+import com.web.common.ReturnMessage;
 import com.web.model.TUser;
 import com.web.service.UserService;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -37,7 +35,7 @@ public class UserController extends DefaultController{
 
     @RequestMapping("/register")
     @ResponseBody
-    public UserMessage toRegister(HttpServletRequest request,TUser user){
+    public Object toRegister(HttpServletRequest request,TUser user){
         printf(request);
 
         EncryptPwd(user);
@@ -53,34 +51,35 @@ public class UserController extends DefaultController{
         }catch (Exception e){
             e.printStackTrace();
         }
-        UserMessage umsg = new UserMessage(code,user);
+        ReturnMessage umsg = new ReturnMessage(code,user);
         return umsg;
     }
 
     @RequestMapping("/login")
     @ResponseBody
-    @RequiresRoles("admin")
+    //@RequiresRoles("admin")
+
     public Object login(TUser user){
         //数据校验
         if(user==null||StringUtils.isEmpty(user.getUsername())||StringUtils.isEmpty(user.getPassword())){
-            return new UserMessage(StatusCodeUtils.STATUS_LOGINFAIL,"登录信息不完整",null);
+            return new ReturnMessage(StatusCodeUtils.STATUS_LOGINFAIL,"登录信息不完整",null);
         }
         //根据username 查询用户
         TUser quser = userService.queryUserByUserName(user.getUsername());
         if(quser==null){
-            return new UserMessage(StatusCodeUtils.STATUS_LOGINFAIL,"用户名错误",null);
+            return new ReturnMessage(StatusCodeUtils.STATUS_LOGINFAIL,"用户名错误",null);
         }
 
         if(!("1").equals(quser.getLocked())){
-           return new UserMessage(StatusCodeUtils.STATUS_USERLOCKED,null);
+           return new ReturnMessage(StatusCodeUtils.STATUS_USERLOCKED,null);
         }
         //根据用户名获取盐
         user.setPassword(getEncryptMd5String(user.getPassword(),quser.getSalt()));;
         //验证用户
         if(user.getPassword().equals(quser.getPassword())){
-            return new UserMessage(StatusCodeUtils.STATUS_LOGINSUCCESS,null);
+            return new ReturnMessage(StatusCodeUtils.STATUS_SUCCESS,null);
         }
 
-        return new UserMessage(StatusCodeUtils.STATUS_LOGINFAIL,null);
+        return new ReturnMessage(StatusCodeUtils.STATUS_LOGINFAIL,null);
     }
 }

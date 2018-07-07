@@ -54,6 +54,8 @@
   <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Core plugin JavaScript-->
   <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <script src="/static/js/common.js" ></script>
 <script type="text/javascript">
     function login(){
         $.ajax({
@@ -65,15 +67,12 @@
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
                 if (result.code == 2002) {
-                    alert("SUCCESS");
-                    //window.location.href='index';
+                    //alert("SUCCESS");
+                    window.location.href='index';
                 }else {
                     alert(result.message);
                 }
 
-            },
-            error : function() {
-                alert("异常！");
             }
         });
     }

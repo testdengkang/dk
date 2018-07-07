@@ -9,9 +9,11 @@ public class StatusCodeUtils {
     public  static int STATUS_RegisterSuccess = 2000;
     public  static int STATUS_RegisterERROR =2001;
 
-    public static int STATUS_LOGINSUCCESS = 2002;
+    public static int STATUS_SUCCESS = 2002;
     public static int STATUS_USERLOCKED =2003;
     public static int STATUS_LOGINFAIL =2004;
+
+    public static int STATUS_UNAUTHENTICATED=2005;
 
     public  static int STATUS_BADREQUEST =400;
     public static int STATUS_NotAuthorization =401;
@@ -44,9 +46,10 @@ public class StatusCodeUtils {
         messageMap.put(STATUS_RegisterSuccess, "注册成功");
         messageMap.put(STATUS_RegisterERROR, "注册失败");
 
-        messageMap.put(STATUS_LOGINSUCCESS,"登录成功");
+        messageMap.put(STATUS_SUCCESS,"成功");
         messageMap.put(STATUS_USERLOCKED,"用户被锁定");
         messageMap.put(STATUS_LOGINFAIL,"登录失败");
+        messageMap.put(STATUS_UNAUTHENTICATED,"无此访问权限");
     }
 
     public static String getMessage(int code){

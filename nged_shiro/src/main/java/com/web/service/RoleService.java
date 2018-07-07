@@ -10,4 +10,5 @@ public interface RoleService {
     int addRole(TRole role);
     int updateRole(TRole role);
     Set<String> queryRolesByUserId(int userId);
+    List<TRole> queryAllRoles();
 }

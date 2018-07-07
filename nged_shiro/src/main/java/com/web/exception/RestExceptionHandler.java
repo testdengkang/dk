@@ -2,8 +2,11 @@ package com.web.exception;
 
 import com.web.common.ExceptionMessage;
 import com.web.common.StatusCodeUtils;
+import org.apache.shiro.authz.UnauthenticatedException;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.springframework.beans.ConversionNotSupportedException;
 import org.springframework.beans.TypeMismatchException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.web.HttpMediaTypeNotAcceptableException;
@@ -12,17 +15,19 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.io.IOException;
 
 @ControllerAdvice
 public class RestExceptionHandler {
 
-    @ExceptionHandler(RuntimeException.class)
+ /*   @ExceptionHandler(RuntimeException.class)
     @ResponseBody
     public Object RuntimeExceptionHandler(RuntimeException runtimeException){
         return new ExceptionMessage(StatusCodeUtils.STATUS_ServerRuntimeError,runtimeException);
-    }
+    }*/
+
 
     //空指针异常
     @ExceptionHandler(NullPointerException.class)
@@ -108,4 +113,23 @@ public class RestExceptionHandler {
         System.out.println("500...");
         return new ExceptionMessage(StatusCodeUtils.STATUS_NotAcceptable, null);
     }
+
+    /*@ExceptionHandler({UnauthenticatedException.class})
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public ModelAndView processUnauthenticatedException(NativeWebRequest request,
+                                                        UnauthorizedException e) {
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("exception", e);
+        mv.setViewName("unauthorized");
+        return mv;
+    }*/
+
+    @ExceptionHandler({UnauthenticatedException.class})
+//    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ResponseBody
+    public Object processUnauthenticatedException(UnauthenticatedException e) {
+
+        return new ExceptionMessage(StatusCodeUtils.STATUS_UNAUTHENTICATED, null);
+    }
+
 }

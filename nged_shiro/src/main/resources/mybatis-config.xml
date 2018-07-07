@@ -12,7 +12,7 @@
 	<plugins>
 		<!-- 分页查询插件 -->
 		<plugin interceptor="com.github.pagehelper.PageHelper">
-			<property name="dialect" value="oracle" />
+			<property name="dialect" value="mysql" />
 			<property name="reasonable" value="true" />
 		</plugin>
 	</plugins>

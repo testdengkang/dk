@@ -6,6 +6,10 @@ import com.web.common.StatusCodeUtils;
 import com.web.common.ReturnMessage;
 import com.web.model.TUser;
 import com.web.service.UserService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -21,6 +25,8 @@ public class UserController extends DefaultController{
 
     @Autowired
     private UserService userService;
+
+
 
     public String getEncryptMd5String(String str,String salt){
         return SecurityUtil.encryptMd5NoBase64(SecurityUtil.encryptMd5NoBase64(str)+salt);
@@ -77,6 +83,9 @@ public class UserController extends DefaultController{
         user.setPassword(getEncryptMd5String(user.getPassword(),quser.getSalt()));;
         //验证用户
         if(user.getPassword().equals(quser.getPassword())){
+            Subject subject = SecurityUtils.getSubject();
+            UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(),user.getPassword());
+            subject.login(token);
             return new ReturnMessage(StatusCodeUtils.STATUS_SUCCESS,null);
         }
 

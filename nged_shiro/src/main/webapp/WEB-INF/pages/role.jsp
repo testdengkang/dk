@@ -37,9 +37,12 @@
       </ol>
       <!-- Example DataTables Card-->
       <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-user-md"></i> 角色管理</div>
+        <div class="card-header"><i class="fa fa-user-md"></i> 角色管理</div>
+
+
+
         <div class="card-body">
+
           <div class="table-responsive">
 
             <table class="table table-bordered" id="roleTable" width="100%" cellspacing="0">
@@ -62,7 +65,7 @@
             </table>
           </div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        <div id="updatTime" class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
     </div>
     <!-- /.container-fluid-->
@@ -90,6 +93,8 @@
         </div>
       </div>
     </div>
+
+
     <!-- Bootstrap core JavaScript-->
     <script src="/static/vendor/jquery/jquery.min.js"></script>
     <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

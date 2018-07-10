@@ -154,4 +154,8 @@ public class TRole {
         result = prime * result + ((getDescription() == null) ? 0 : getDescription().hashCode());
         return result;
     }
+
+    public String[] toArray(){
+        return new String[]{this.id.toString(),this.role,this.description};
+    }
 }

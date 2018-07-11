@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -65,30 +66,32 @@ public class UserController extends DefaultController{
     @ResponseBody
     //@RequiresRoles("admin")
 
-    public Object login(TUser user){
+    public Object login(TUser user,@RequestParam(required = false,name = "rememberMe") boolean  rememberMe ){
         //数据校验
         if(user==null||StringUtils.isEmpty(user.getUsername())||StringUtils.isEmpty(user.getPassword())){
             return new ReturnMessage(StatusCodeUtils.STATUS_LOGINFAIL,"登录信息不完整",null);
         }
-        //根据username 查询用户
-        TUser quser = userService.queryUserByUserName(user.getUsername());
-        if(quser==null){
-            return new ReturnMessage(StatusCodeUtils.STATUS_LOGINFAIL,"用户名错误",null);
+
+
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(),user.getPassword());
+        //记住密码
+        if(rememberMe){
+            token.setRememberMe(true);
         }
 
-        if(!("1").equals(quser.getLocked())){
-           return new ReturnMessage(StatusCodeUtils.STATUS_USERLOCKED,null);
-        }
-        //根据用户名获取盐
-        user.setPassword(getEncryptMd5String(user.getPassword(),quser.getSalt()));;
-        //验证用户
-        if(user.getPassword().equals(quser.getPassword())){
-            Subject subject = SecurityUtils.getSubject();
-            UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(),user.getPassword());
-            subject.login(token);
-            return new ReturnMessage(StatusCodeUtils.STATUS_SUCCESS,null);
-        }
+        subject.login(token);
+        return new ReturnMessage(StatusCodeUtils.STATUS_SUCCESS,null);
 
-        return new ReturnMessage(StatusCodeUtils.STATUS_LOGINFAIL,null);
+
+
+    }
+
+    @RequestMapping("/logout")
+    @ResponseBody
+    public Object logout(){
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+    return new ReturnMessage(StatusCodeUtils.STATUS_SUCCESS,null);
     }
 }

@@ -20,7 +20,7 @@
 		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"></context:include-filter>
 	</context:component-scan>
 	<mvc:resources location="/WEB-INF/static/" mapping="/static/**" />
-	<mvc:resources location="/WEB-INF/pages/" mapping="/**/*.html"/>
+	<!--<mvc:resources location="/WEB-INF/pages/" mapping="/**/*.html"/>-->
 	<mvc:annotation-driven />
 	<!-- 激活自动代理功能 -->
 	<aop:aspectj-autoproxy proxy-target-class="true"/>
@@ -30,14 +30,14 @@
 	</bean>
 
 
-	<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+	<!--<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
 		<property name="templateLoaderPath" value="/WEB-INF/pages/"/>
 	</bean>
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 		<property name="cache" value="true"/>
 		<property name="prefix" value=""/>
 		<property name="suffix" value=".html"/>
-	</bean>
+	</bean>-->
 	<!-- -->
 	<mvc:view-resolvers>
 		<mvc:jsp cache-views="false" prefix="/WEB-INF/pages/" suffix=".jsp"  />

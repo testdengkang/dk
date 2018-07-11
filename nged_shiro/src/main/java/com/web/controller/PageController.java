@@ -1,6 +1,8 @@
 package com.web.controller;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.authz.annotation.RequiresGuest;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,25 +15,27 @@ public class PageController  extends DefaultController {
 
     @Value("#{configProperties['pageName']}")
     private String pagesName;
-    @RequestMapping(value = "/")
-    public ModelAndView index(){
-        return new ModelAndView("index");
-    }
+
+
     @RequestMapping(value = "/{pageName}")
     public ModelAndView index(@PathVariable("pageName")String pageName){
         ModelAndView modelAndView = new ModelAndView();
+        try{
+            if(StringUtils.isEmpty(pageName) || StringUtils.isEmpty(pagesName)){
+                modelAndView.setViewName("unauthorized");
+                return modelAndView;
+            }
+            if(pagesName.indexOf(pageName)!=-1){
+                modelAndView.setViewName(pageName);
+            }
 
-        if(StringUtils.isEmpty(pageName) || StringUtils.isEmpty(pagesName)){
-            modelAndView.setViewName("unauthorized");
-            return modelAndView;
+
+            System.out.println(pagesName);
+            System.out.println(pageName);
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        if(pagesName.indexOf(pageName)!=-1){
-            modelAndView.setViewName(pageName);
-        }
 
-
-        System.out.println(pagesName);
-        System.out.println(pageName);
 
 
         return modelAndView;

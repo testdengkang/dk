@@ -1,7 +1,7 @@
 $(document).ready( function() {
 
      var rt= $('#roleTable').dataTable( {
-                "lengthMenu": [[15, 25, 50, -1], [15, 25, 50, "All"]],
+                "lengthMenu": [[5, 10, 50, -1], [5, 10, 50, "All"]],
                 "pagingType":   "full_numbers" ,//分页样式
                  stateSave: true ,//保留页面上一次的状态
                  

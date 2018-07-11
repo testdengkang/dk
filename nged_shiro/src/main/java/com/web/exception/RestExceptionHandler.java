@@ -125,7 +125,7 @@ public class RestExceptionHandler {
     }*/
 
     @ExceptionHandler({UnauthenticatedException.class})
-//    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ResponseBody
     public Object processUnauthenticatedException(UnauthenticatedException e) {
 
@@ -133,11 +133,12 @@ public class RestExceptionHandler {
     }
 
     @ExceptionHandler({UnauthorizedException.class})
-    //    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ResponseBody
     public Object processUnauthorizedException(UnauthorizedException e) {
 
         return new ExceptionMessage(StatusCodeUtils.STATUS_UNAUTHENTICATED, null);
     }
+
 
 }

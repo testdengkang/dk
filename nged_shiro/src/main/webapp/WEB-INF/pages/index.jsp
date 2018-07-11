@@ -920,6 +920,7 @@
     <!-- Custom scripts for this page-->
     <script src="static/js/sb-admin-datatables.min.js"></script>
     <script src="static/js/sb-admin-charts.min.js"></script>
+    <script type="static/js/common.js"></script>
   </div>
 </body>
 

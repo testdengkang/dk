@@ -1,3 +1,4 @@
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
@@ -38,9 +39,7 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header"><i class="fa fa-user-md"></i> 角色管理</div>
-
-
-
+        <shiro:hasPermission name="/role/list" > admin </shiro:hasPermission>
         <div class="card-body">
 
           <div class="table-responsive">
@@ -88,7 +87,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login">Logout</a>
+            <a class="btn btn-primary" id="logoutButton" >Logout</a>
           </div>
         </div>
       </div>

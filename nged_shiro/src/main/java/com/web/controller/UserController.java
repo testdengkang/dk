@@ -6,8 +6,9 @@ import com.web.common.StatusCodeUtils;
 import com.web.common.ReturnMessage;
 import com.web.model.TUser;
 import com.web.service.UserService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ import java.util.Date;
 @Controller
 @RequestMapping("/user")
 public class UserController extends DefaultController{
-
+    private static final Logger LOG =  LogManager.getLogger();
     @Autowired
     private UserService userService;
 
@@ -81,7 +82,7 @@ public class UserController extends DefaultController{
         }
 
         subject.login(token);
-        return new ReturnMessage(StatusCodeUtils.STATUS_SUCCESS,null);
+   return new ReturnMessage(StatusCodeUtils.STATUS_SUCCESS,null);
 
 
 

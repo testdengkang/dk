@@ -28,10 +28,6 @@ public class PageController  extends DefaultController {
             if(pagesName.indexOf(pageName)!=-1){
                 modelAndView.setViewName(pageName);
             }
-
-
-            System.out.println(pagesName);
-            System.out.println(pageName);
         }catch (Exception e){
             e.printStackTrace();
         }

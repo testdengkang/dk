@@ -21,7 +21,7 @@ public class ProductServiceImpl implements ProductService {
 	static{
 		products = getDummyProducts();
 	}
-	
+	//不对name 为HTC的数据做缓存
 	@Override
 	@Cacheable(value="products", key="#name", condition="#name!='HTC'" , unless="#result==null")
 	public Product getByName(String name) {

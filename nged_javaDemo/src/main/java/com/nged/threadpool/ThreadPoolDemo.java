@@ -33,28 +33,36 @@ public class ThreadPoolDemo implements Runnable{
         //等待队列 SynchronousQueue<Runnable>() 直接提交
         //有界队列 ArrayBlockingQueue
         //无界队列  LinkedBlockingQueue<Runnable>() 可以设置大小
+        //优先级队列
         //只有一个线程处理任务   存储队列最大可达Integer.MAX_VALUE
         //Executors.newSingleThreadExecutor(); new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>())
         //最多可建Integer.MAX_VALUE 个线程 没有等待队列
         //Executors.newCachedThreadPool(); new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS,  new SynchronousQueue<Runnable>())
         //固定大小
         //Executors.newFixedThreadPool(2);
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(2,2,5, TimeUnit.SECONDS,new LinkedBlockingQueue<Runnable>(),new rj()){
-            //
-            @Override
-            protected void beforeExecute(Thread t, Runnable r) {
-                System.out.println("准备执行："+((ThreadPoolDemo)r).name);
-            }
-            @Override
-            protected void afterExecute(Runnable r, Throwable t) {
-                System.out.println("执行完成："+((ThreadPoolDemo)r).name);
-            }
+        //线程池的参数 正常活跃线程数 最大线程数 超过正常活跃数线程的空闲回收时间 时间单位 排队队列 拒绝策略
+//        ThreadPoolExecutor executor = new ThreadPoolExecutor(1,1,50, TimeUnit.SECONDS,new LinkedBlockingQueue<Runnable>(),new rj()){
+//            //
+//            @Override
+//            protected void beforeExecute(Thread t, Runnable r) {
+//                System.out.println("准备执行："+((ThreadPoolDemo)r).name);
+//            }
+//            @Override
+//            protected void afterExecute(Runnable r, Throwable t) {
+//
+//                System.out.println("执行完成："+((ThreadPoolDemo)r).name);
+//            }
+//
+//            @Override
+//            protected void terminated() {
+//                System.out.println("线程退出");
+//            }
+//        };
 
-            @Override
-            protected void terminated() {
-                System.out.println("线程退出");
-            }
-        };
+//        for(int i=1;i<Integer.MAX_VALUE;i++){
+//            executor.execute(new ThreadPoolDemo(i));
+//        }
+        ExecutorService executor =  Executors.newSingleThreadExecutor();
         for(int i=1;i<Integer.MAX_VALUE;i++){
             executor.execute(new ThreadPoolDemo(i));
         }

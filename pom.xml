@@ -12,10 +12,13 @@
         <module>nged_service</module>
         <module>nged_cache</module>
         <module>nged_javaDemo</module>
+        <module>springaop01</module>
+        <module>nged_shiro</module>
+        <!--<module>spring boot/springboot_demo</module>-->
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>4.3.7.RELEASE</spring.version>
+        <spring.version>4.3.18.RELEASE</spring.version>
 
         <!--自定义-->
         <file.encoding>UTF-8</file.encoding>
@@ -59,7 +62,7 @@
         <log4j.version>1.2.17</log4j.version>
         <freemarker.version>2.3.23</freemarker.version>
         <mysql.version>5.1.30</mysql.version>
-        <jackson.core.version>2.8.7</jackson.core.version>
+        <jackson.core.version>2.8.11</jackson.core.version>
         <jackson.mapper.version>1.9.13</jackson.mapper.version>
         <!-- mybatis版本号 -->
         <oracle.version>11.2.0.3</oracle.version>
@@ -76,6 +79,9 @@
         <springfox.version>2.4.0</springfox.version>
         <!--junit-->
         <junit.version>4.11</junit.version>
+
+        <!--mq-->
+        <activemq.version>5.15.3</activemq.version>
     </properties>
     <dependencyManagement>
     <dependencies>
@@ -324,6 +330,12 @@
             <version>${cglib.version}</version>
         </dependency>
 
+        <!--mq-->
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-all</artifactId>
+            <version>${activemq.version}</version>
+        </dependency>
     </dependencies>
     </dependencyManagement>
 
@@ -372,7 +384,7 @@
                 <version>${maven-clean-plugin.version}</version>
             </plugin>
             <!-- Maven Resources -->
-            <plugin>
+           <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>${maven-resources-plugin.version}</version>
@@ -382,7 +394,7 @@
                         <resource>
                             <directory>src/main/resources</directory>
                             <filtering>${resource.filtering}</filtering>
-                            <!-- 剔除下如下配置中包含的资源类型 -->
+                            &lt;!&ndash; 剔除下如下配置中包含的资源类型 &ndash;&gt;
                             <excludes>
                                 <exclude>**/profile/**</exclude>
                                 <exclude>**/*.sql</exclude>
@@ -392,7 +404,7 @@
                         </resource>
                     </resources>
                 </configuration>
-            </plugin>
+            </plugin>-->
             <!-- Maven Compiler -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

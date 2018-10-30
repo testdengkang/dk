@@ -18,7 +18,7 @@
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>4.3.18.RELEASE</spring.version>
+        <spring.version>4.3.19.RELEASE</spring.version>
 
         <!--自定义-->
         <file.encoding>UTF-8</file.encoding>

@@ -1,2 +1,5 @@
 algorithm 算法：
-    Dichotomy search
+    Dichotomy search 二分法查找 折半查找
+    Guibin归并
+lock：
+    SpinLock 利用原子锁实现的自旋锁

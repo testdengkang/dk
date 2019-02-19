@@ -13,5 +13,3 @@ public class ChainTest {
     }
 }
 
-
-//~ Formatted by Jindent --- http://www.jindent.com

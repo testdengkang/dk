@@ -1,7 +1,7 @@
 package com.nged.designpatterns.chainmode;
 
 /**
- * �쵼
+ * �쵼
  */
 public abstract class Leader {
     protected String name;

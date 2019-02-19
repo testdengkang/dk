@@ -18,5 +18,15 @@ public class StringTestC {
         String b = "2";
         a = b;
         System.out.println(a);
+        int a1 =12;
+        System.out.println(a1&1);
+        System.out.println((a1&1)==1);
+        int b1=2; int b2 =5;
+        b1 ^= b2;
+        b2 ^=b1;
+        b1 ^=b2;
+        System.out.println(b1);
+        System.out.println(b2);
+
     }
 }

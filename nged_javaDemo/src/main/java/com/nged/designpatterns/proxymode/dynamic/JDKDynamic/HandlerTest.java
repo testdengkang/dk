@@ -11,6 +11,7 @@ public class HandlerTest {
         Object proxy =  Proxy.newProxyInstance(HandlerTest.class.getClassLoader(),new Class[]{FoodProvider.class,DrinkProvider.class},new MyHandler(Restaurant.class));
         ((DrinkProvider)proxy).getDrink("可乐");
         ((FoodProvider)proxy).getFood("汉堡");
+        ((FoodProvider)proxy).finshedEat();
 
 
     }

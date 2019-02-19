@@ -1,8 +1,6 @@
 package com.nged.designpatterns.chainmode;
 
-/**
- * Çë¼Ùµ¥
- */
+
 public class LeaveRequest {
     private String name;
     private int    days;
@@ -40,4 +38,3 @@ public class LeaveRequest {
 }
 
 
-//~ Formatted by Jindent --- http://www.jindent.com

@@ -8,9 +8,9 @@ public class Manager extends Leader {
     @Override
     public void handleRequest(LeaveRequest leaveRequest) {
         if ((leaveRequest.getDays() >= 3) && (leaveRequest.getDays() < 10)) {
-            System.out.println(this.name + "¾­ÀíÉóÅúÍ¨¹ý£¡");
+            System.out.println(this.name + "ç»ç†å®¡æ‰¹é€šè¿‡ï¼");
         } else {
-            System.out.println("Çë¼Ù³¬¹ý10Ìì£¬ÐèÒª×Ü¾­ÀíÉóÅú£¡");
+            System.out.println("è¯·å‡è¶…è¿‡10å¤©ï¼Œéœ€è¦æ€»ç»ç†å®¡æ‰¹ï¼");
 
             if (this.nextLeader != null) {
                 this.nextLeader.handleRequest(leaveRequest);
@@ -19,5 +19,3 @@ public class Manager extends Leader {
     }
 }
 
-
-//~ Formatted by Jindent --- http://www.jindent.com

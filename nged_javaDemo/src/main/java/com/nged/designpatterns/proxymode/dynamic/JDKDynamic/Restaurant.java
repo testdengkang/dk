@@ -13,4 +13,9 @@ public class Restaurant  implements DrinkProvider,FoodProvider{
         System.out.println("顾客需要食物"+name);
     }
 
+    @Override
+    public void finshedEat() {
+        System.out.println("顾客吃完了");
+    }
+
 }

@@ -15,21 +15,20 @@ public class FastSort2 {
         System.out.println();
     }
     /**
-     * 左右指针，遍历指针，已排序指针，基准值（最后一个值）。遍历指针寻找小于基准的值，找到跟已排序指针位置交换（已排序+1），当遍历指针到达基准前一个位置，本轮结束
+     * 前后指针，遍历指针，已排序指针，基准值（最后一个值）。遍历指针寻找小于基准的值，找到跟已排序指针位置交换（已排序+1），当遍历指针到达基准前一个位置，本轮结束
      * 基准值跟已排序指针位置交换。
      * @param array
      * @param left
      * @param right
      */
     public static int sort(int[] array,int left,int right){
-        int start = left;
-        int end = right;
+
         //选取最左作为基准
         int key =left ;
         //基准的下一项作为已排序
         int pre = key+1;
         int cur = pre;
-        while(cur<=end){
+        while(cur<=right){
             if(array[cur]<array[key] ){
                swap(array,pre,cur);
                 ++pre;

@@ -1,9 +1,9 @@
-package com.nged.algorithm;
+package com.nged.algorithm.selectSort;
 
 /**
  * @author: Administrator
  * @Date: 2019/3/6 16:36
- * @Description:选择排序（未排序队列中最大/小的值放到已排序队列的末尾）
+ * @Description:选择排序（未排序队列中最大/小的值放到未排序队列的头位置）
  */
 public class SelectSort {
     /**
@@ -25,6 +25,8 @@ public class SelectSort {
             array[minIndex] = temp;
         }
     }
+
+
 
     public static void main(String[] args){
         int[] array = {2,3,4,7,6,1,80,33};

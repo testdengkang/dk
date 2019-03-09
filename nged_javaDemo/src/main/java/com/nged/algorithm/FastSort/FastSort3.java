@@ -1,4 +1,4 @@
-package com.nged.algorithm;
+package com.nged.algorithm.FastSort;
 
 /**
  * @author: Administrator

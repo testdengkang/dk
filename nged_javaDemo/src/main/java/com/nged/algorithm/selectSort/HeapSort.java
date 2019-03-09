@@ -25,20 +25,29 @@ public class HeapSort {
 
 
     public static void maxHeapSort(int[] array,int length){
-
+        length -=1;
         boolean changed = false;
         //j 从最后一个有子节点的节点开始
         for(int j=length/2-1;j>=0;j--){
             int leftIndex = 2*j+1;
-            int rightIndex = 2*j+2;
-            if(leftIndex<length && array[leftIndex]>array[j] ){
-                swap(array,leftIndex,j);
+            int rightIndex = leftIndex+1;
+
+
+
+
+            if(!(leftIndex<length && rightIndex<length )){
+                return;
+            }
+            int index = rightIndex;
+            if(array[leftIndex]>array[rightIndex]){
+                index = leftIndex;
+            }
+            if(array[index]>array[j]){
+                swap(array,index,j);
                 changed = true;
             }
-            if( rightIndex<length && array[rightIndex]>array[j] ){
-                swap(array,rightIndex,j);
-                changed = true;
-            }
+
+
         }
         //如果发生交换，需要再循环，确保慢父节点 和左右子节点的大小关系，直至不在发生交换
         if(changed){

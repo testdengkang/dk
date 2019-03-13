@@ -1,4 +1,4 @@
-package com.nged.algorithm;
+package com.nged.algorithm.sort;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

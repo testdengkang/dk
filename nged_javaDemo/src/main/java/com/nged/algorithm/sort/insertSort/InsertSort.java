@@ -1,4 +1,4 @@
-package com.nged.algorithm.insertSort;
+package com.nged.algorithm.sort.insertSort;
 
 /**
  * @author: Administrator

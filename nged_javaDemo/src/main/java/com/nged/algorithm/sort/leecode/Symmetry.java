@@ -1,4 +1,4 @@
-package com.nged.algorithm.leecode;
+package com.nged.algorithm.sort.leecode;
 
 /**
  * @Auther: Administrator

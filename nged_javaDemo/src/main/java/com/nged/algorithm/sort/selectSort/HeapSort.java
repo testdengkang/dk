@@ -1,4 +1,4 @@
-package com.nged.algorithm.selectSort;
+package com.nged.algorithm.sort.selectSort;
 
 /**
  * @author: Administrator

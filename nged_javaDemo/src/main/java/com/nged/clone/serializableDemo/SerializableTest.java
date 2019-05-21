@@ -1,4 +1,4 @@
-package com.nged.serializableDemo;
+package com.nged.clone.serializableDemo;
 
 import java.io.*;
 

@@ -1,6 +1,7 @@
 package com.nged.jvm;
 //验证栈的溢出
 //vm -Xss128k
+//-Xmx100m -Xms100m -Xmn10m -Xss128k  -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:+PrintGCCause -Xloggc:E:/github/myGit/dk/nged_javaDemo/StackOverFlowDemo_gc.log  -XX:+PrintCommandLineFlags
 public class StackOverFlowDemo {
     private int length=1;
     public void stackLeak(){

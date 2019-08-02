@@ -34,7 +34,7 @@
     from T_PERMISSION
     where ID = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectAll" resultMap="BaseResultMap" >
+  <select id="selectAll" resultMap="BaseResultMap">
 
     select ID, PERMISSION, DESCRIPTION, AVAILABLE
     from T_PERMISSION

@@ -21,6 +21,8 @@
         <property name="properties" ref="configProperties"/>
     </bean>
 
+
+
     <!-- 扫描注解 -->
     <context:component-scan base-package="com.web">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />

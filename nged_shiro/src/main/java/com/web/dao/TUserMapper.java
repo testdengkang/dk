@@ -50,4 +50,6 @@ public interface TUserMapper {
      * @return
      */
     TUser queryUserByUserName(String userName);
+
+    void batchInsertWithForeach(List<TUser> list);
 }

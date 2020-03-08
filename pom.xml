@@ -330,6 +330,12 @@
             <version>${cglib.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.18</version>
+            <scope>provided</scope>
+        </dependency>
         <!--mq-->
         <dependency>
             <groupId>org.apache.activemq</groupId>

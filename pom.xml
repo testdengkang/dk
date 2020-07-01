@@ -61,7 +61,7 @@
         <slf4j.version>1.7.7</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
         <freemarker.version>2.3.23</freemarker.version>
-        <mysql.version>5.1.30</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <jackson.core.version>2.10.1</jackson.core.version>
         <jackson.mapper.version>1.9.13</jackson.mapper.version>
         <!-- mybatis版本号 -->

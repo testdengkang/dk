@@ -78,7 +78,7 @@
         <!--swagger2-->
         <springfox.version>2.4.0</springfox.version>
         <!--junit-->
-        <junit.version>4.11</junit.version>
+        <junit.version>4.13.1</junit.version>
 
         <!--mq-->
         <activemq.version>5.15.3</activemq.version>

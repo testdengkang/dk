@@ -67,7 +67,7 @@
         <!-- mybatis版本号 -->
         <oracle.version>11.2.0.3</oracle.version>
 
-        <mybatis.version>3.2.6</mybatis.version>
+        <mybatis.version>3.5.6</mybatis.version>
         <mybatis.spring.version>1.2.2</mybatis.spring.version>
         <pagehelper.version>3.2.3</pagehelper.version>
 

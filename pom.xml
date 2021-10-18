@@ -62,7 +62,7 @@
         <log4j.version>1.2.17</log4j.version>
         <freemarker.version>2.3.23</freemarker.version>
         <mysql.version>8.0.16</mysql.version>
-        <jackson.core.version>2.10.1</jackson.core.version>
+        <jackson.core.version>2.13.0</jackson.core.version>
         <jackson.mapper.version>1.9.13</jackson.mapper.version>
         <!-- mybatis版本号 -->
         <oracle.version>11.2.0.3</oracle.version>

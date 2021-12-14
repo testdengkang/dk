@@ -11,7 +11,7 @@
     <name>shiro</name>
     <url>http://maven.apache.org</url>
     <properties >
-        <log4j.version>2.14.1</log4j.version>
+        <log4j.version>2.16.0</log4j.version>
         <spring.version>4.3.21.RELEASE</spring.version>
         <project.name>shiro</project.name>
         <jsqlparser.version>0.9.5</jsqlparser.version>
